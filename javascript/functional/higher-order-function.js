@@ -35,5 +35,3 @@ function makeFn() {
 
 makeFn()()
 
-// 只执行一个：once
-

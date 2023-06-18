@@ -84,3 +84,40 @@ function memoize(f) {
   }
 }
 ```
+
+### 函数的副作用
+
+就是一个函数有依赖外部的变量
+
+```js
+let mini = 18
+function checkAge(age) {
+  return age >= mini
+}
+```
+
+### 柯里化
+
+- 当一个函数有多个参数的时候，先传递一个部分参数调用它（这部分参数后续就不会改变了）
+- 然后返回一个新的函数接收剩余的参数，返回结果
+
+```js
+// 原来的函数需要依赖一个min参数
+function func1(age) {
+  let min = 18
+  return age <= 18
+}
+
+// 柯里化
+function func2(min) {
+  return function(age) {
+    return age >= min
+  }
+}
+
+// 这样就可以实现达到不依赖外部的参数
+let checkAge18 = func2(18)
+
+// 箭头函数的写法
+let check = min => (age => age >= min)
+```
