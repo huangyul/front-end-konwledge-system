@@ -13,7 +13,7 @@ let n1 = 2
 let n2 = 3
 let sum = n1 + n2
 console.log(sum)
-
+console.log(arr)
 // 函数式
 function sum(n1, n2) {
     return n1 + n2
@@ -40,3 +40,20 @@ const controller = {
 
 - 可以把函数作为参数传递给另外一个函数
 - 可以把函数作为另一个函数的返回结果
+
+常用的高阶函数，如数组的`map`,`every`,`some`等等
+
+## 闭包
+
+可以另一个作用域内调用一个函数内部函数并访问到该函数作用域中的成员
+
+```js
+function fun1() {
+  let msg = "hello"
+  return function() {
+    console.log(msg) // 这用了外部函数的变量
+  }
+}
+```
+
+
