@@ -43,7 +43,7 @@ const controller = {
 
 常用的高阶函数，如数组的`map`,`every`,`some`等等
 
-## 闭包
+# 闭包
 
 可以另一个作用域内调用一个函数内部函数并访问到该函数作用域中的成员
 
@@ -56,4 +56,31 @@ function fun1() {
 }
 ```
 
+# 纯函数
 
+相同的输入，永远得到相同的输出，而且**没有任何可观察的副作用**
+
+例如数组的方法中，`slice`和`splice`，`slice`不会影响原来的数组，`splice`会改变原来的数组
+
+```js
+function pureFunc(n) {
+  return n + 1
+}
+```
+
+### 纯函数的函数
+
+- 因为相同的输入始终有相同的结果，所以可以将结果进行缓存
+
+```js
+function memoize(f) {
+  // 定义一个缓存
+  const cache = {}
+  return funcion() {
+    // 拿到调用函数的参数
+    let kee = JSON.stringify(arguments)
+    cache[key] = cache[key] || f.apply(f, arguments)
+    return cache[key]
+  }
+}
+```
