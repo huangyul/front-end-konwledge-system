@@ -39,3 +39,46 @@
 - grunt：构建过程会产生临时文件，有磁盘读写操作，很慢
 - gulp：基于内存，速度快
 - fis：百度出品，比较全，适合初学者
+
+### Grunt
+
+#### 基本使用
+
+安装`pnpm add -D grunt`
+
+定义入口文件`gruntfile.js`
+
+```js
+module.exports = grunt => {
+  grunt.registerTask('foo', () => {
+    console.log('foo')
+  })
+}
+```
+
+此时执行命令: `pnpm grunt foo`，就会打印出`"foo"`
+
+更多用法
+
+```js
+module.exports = grunt => {
+  grunt.registerTask('foo', () => {
+    console.log('foo')
+  })
+
+  // default 是默认，及不需要加名称，后面的数组是一并调用注册了的任务
+  grunt.registerTask('default', ['foo'], () => {
+    console.log('default')
+  })
+
+  // 如果是异步的，需要拿到this.async方法返回的回调方法，然后在异步执行后执行
+  grunt.registerTask('async-task', function() {
+    const done = this.async()
+    setTimeout(() => {
+      console.log('sync function done')
+      done()
+    }, 1000)
+  })
+}
+
+```
