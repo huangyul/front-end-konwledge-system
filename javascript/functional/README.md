@@ -121,3 +121,18 @@ let checkAge18 = func2(18)
 // 箭头函数的写法
 let check = min => (age => age >= min)
 ```
+
+### 柯里化原理模拟实现
+
+```js
+
+function curry(fn) {
+  reutrn function(...args) {
+    if(args.length < fn.length) {
+      return function() {}
+    } else {
+      return fn(...args)
+    }
+  }
+}
+```
