@@ -108,3 +108,87 @@ module.exports = grunt => {
 }
 
 ```
+
+
+#### 常用的插件
+
+1. sass
+
+需要安装的依赖: `sass` 、`grunt-sass`
+
+```js
+
+const sass = require('sass')
+
+module.exports = grunt => {
+  grunt.initConfig({
+    sass: {
+      options: {
+        sourceMap: true,
+        implementation: sass
+      },
+      main: {
+        files: {
+          'dist/css/main.css': 'src/sass/main.scss'
+        }
+      }
+    }
+  })
+
+  grunt.loadNpmTasks('grunt-sass')
+}
+
+```
+
+2. babel
+
+需要的依赖 grunt-babel  @babel/core  @babel/preset-env
+
+```js
+const sass = require('sass')
+const loadGruntTasks = require('load-grunt-tasks')
+
+
+module.exports = grunt => {
+  grunt.initConfig({
+    sass: {
+      options: {
+        sourceMap: true,
+        implementation: sass
+      },
+      main: {
+        files: {
+          'dist/css/main.css': 'src/sass/main.scss'
+        }
+      }
+    },
+    babel: {
+      options: {
+        presets: ['@babel/preset-env']
+      },
+      main: {
+        files: {
+          "dist/js/main.js": "src/js/main.js"
+        }
+      }
+    },
+    watch: {
+      js: {
+        files: ["src/js/main.js"],
+        tasks: ['babel'],
+      },
+      sass: {
+        files: ["src/sass/*.scss"],
+        tasks: ['sass']
+      }
+    }
+  })
+
+  // grunt.loadNpmTasks('grunt-sass')
+  loadGruntTasks(grunt)
+
+  // 定个默认任务，先执行默认的打包，然后再watch
+  grunt.registerTask('default', ['babel', 'sass', 'watch'])
+}
+
+```
