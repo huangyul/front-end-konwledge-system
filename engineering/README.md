@@ -82,3 +82,29 @@ module.exports = grunt => {
 }
 
 ```
+
+配置方法
+
+```js
+module.exports = grunt => {
+  grunt.initConfig({
+    bar: 123  // 这个值可以在其他任务中直接拿到
+  })
+}
+```
+
+#### 使用插件
+
+```js
+module.exports = grunt => {
+  grunt.initConfig({
+    clean: {
+      temp: "temp/**"
+    }
+  })
+
+  // 加载插件
+  grunt.loadNpmTasks('grunt-contrib-clean')
+}
+
+```
