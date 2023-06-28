@@ -192,3 +192,23 @@ module.exports = grunt => {
 }
 
 ```
+### Gulp
+
+`pnpm add gulp`
+
+启动文件`gulpfile.js`
+
+#### 基本使用
+
+通过在文件中导出函数
+
+```js
+exports.foo = (done) => {
+  console.log('foo task working~')
+  // 标记任务完成
+  done()
+}
+
+```
+
+运行`pnpm gulp foo`
