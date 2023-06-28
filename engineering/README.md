@@ -212,3 +212,33 @@ exports.foo = (done) => {
 ```
 
 运行`pnpm gulp foo`
+
+#### 组合任务
+
+可以组合多个任务，选择串行执行或者并行执行
+
+```js
+const { series, parallel } = require("gulp")
+
+const foo = done => {
+  setTimeout(() => {
+    console.log('foo')
+    done()
+  })
+}
+
+const bar = done => {
+  setTimeout(() => {
+    console.log('bar')
+    done()
+  }
+  )
+}
+
+// 串行任务
+exports.test = series(foo, bar)
+
+// 并行任务
+exports.test2 = parallel(foo, bar)
+
+```
