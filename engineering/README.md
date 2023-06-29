@@ -297,3 +297,22 @@ exports.stream = () => {
 }
 
 ```
+
+#### gulp文件操作
+
+通过api+插件
+
+```js
+const { src, dest } = require("gulp")
+const cleanCss = require('gulp-clean-css')
+const rename = require('gulp-rename')
+
+exports.default = () => {
+  // 使用src读取文件流，使用dest输出文件流
+  return src('./*.css')
+  .pipe(cleanCss()) // 压缩文件
+  .pipe(rename({extname: ".min.css"})) // 重命名
+  .pipe(dest('dist'))
+}
+
+```
