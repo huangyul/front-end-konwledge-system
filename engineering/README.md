@@ -242,3 +242,25 @@ exports.test = series(foo, bar)
 exports.test2 = parallel(foo, bar)
 
 ```
+
+#### 异步任务
+
+```js
+// 回调的方式
+exports.callback = done => {
+  console.log(111)
+  done()
+}
+
+// promise
+exports.promise = () => {
+  console.log(123)
+  return Promise.resovle()
+}
+
+// async await 
+exports.async = async () => {
+  await asyncFunc(111)
+  console.log(1211)
+}
+```
