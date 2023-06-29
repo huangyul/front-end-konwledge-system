@@ -264,3 +264,36 @@ exports.async = async () => {
   console.log(1211)
 }
 ```
+
+#### 构建过程核心工作原理
+
+工作原理就是读取源文件，通过去掉空格等方式，压缩代码，然后写入新的文件中
+
+例子：
+```js
+const fs = require("fs")
+const { Transform } = require('stream')
+
+exports.stream = () => {
+  // 读取文件
+  const readStream = fs.createReadStream('./normalize.css')
+
+  // 写入文件
+  const writeStream = fs.createWriteStream("./normalize.min.css")
+
+  // 转换流
+  const transform = new Transform({
+    transform: (chunk, encoding, callback) => {
+      // chunk => 读取流中读取到的内容 （buffer）
+      const input = chunk.toString()
+      const output = input.replace(/\s+/g, "").replace(/\/\*.+?\*\//g, "")
+      callback(null, output)
+    }
+  })
+
+  // 将读取出来的文件写入新文件，要经过转换流
+  readStream.pipe(transform).pipe(writeStream)
+  return writeStream
+}
+
+```
