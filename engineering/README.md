@@ -316,3 +316,27 @@ exports.default = () => {
 }
 
 ```
+
+#### 实战-打包一个项目
+
+##### 打包sass
+
+首先要安装gulp-sass
+
+`pnpm add gulp-sass -D`
+
+编写构建代码
+
+```js
+const {src, dest} = require('gulp')
+const sass = require('gulp-sass')
+function style() {
+  return src("src/assets/style/*.scss", {base: "src"}) // 输出目录按照原来的src里面的目录
+    .pipe(sass({outputStyle: 'expanded'}))
+    .pipe(dest("dist"))
+}
+
+export.modules = {
+  style
+}
+```
