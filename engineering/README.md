@@ -381,3 +381,21 @@ const image = () => {
 }
 
 ```
+
+##### public及自动删除dist
+
+public直接复制过去即可
+
+自动删除需要安装依赖
+`pnpm add del -D`
+
+```js
+const { series } = require("gulp")
+const del = require("del")
+
+const clean = () => {
+  return del("dist")
+}
+
+const build = series(clean, paraller())  // 先执行clean，再执行重新打包的任务
+```
