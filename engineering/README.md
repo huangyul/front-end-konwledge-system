@@ -356,7 +356,7 @@ const scripts = () => {
 }
 ```
 
-#### 编译模板
+##### 编译模板
 
 `pnpm add gulp-swig -D`
 
@@ -367,4 +367,17 @@ const page = () => {
     .pipe(swig({ data })) // data是定义一些配置数据
     .pipe(dest("dist"))
 }
+```
+
+##### 压缩图片和字体
+
+`pnpm add gulp-imagemin -D`
+
+```js
+const image = () => {
+  return src("src/assets/images/**", {base: "src"})
+    .pipe(imagemin())
+    .pipe(dest("dist"))
+}
+
 ```
