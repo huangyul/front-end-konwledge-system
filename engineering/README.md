@@ -355,3 +355,16 @@ const scripts = () => {
     .pipe(dest("dist"))
 }
 ```
+
+#### 编译模板
+
+`pnpm add gulp-swig -D`
+
+```js
+// 编译模板
+const page = () => {
+  return src("src/*.html", { base: "src" })
+    .pipe(swig({ data })) // data是定义一些配置数据
+    .pipe(dest("dist"))
+}
+```
