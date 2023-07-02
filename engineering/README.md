@@ -340,3 +340,18 @@ export.modules = {
   style
 }
 ```
+
+##### 打包脚本文件
+
+要安装以下插件
+
+`pnpm add gulp-babel @babel/core @babel/preset-env -D`
+
+```js
+const babel = require("gulp-babel")
+const scripts = () => {
+  return src("src/assets/scripts/*.js", {base:"src"})
+    .pipe(babel({preset: ["@babel/preset-env"]}))
+    .pipe(dest("dist"))
+}
+```
