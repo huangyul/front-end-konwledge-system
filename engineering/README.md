@@ -399,7 +399,7 @@ const clean = () => {
 
 const build = series(clean, paraller())  // 先执行clean，再执行重新打包的任务
 ```
-###### 开发服务器
+##### 开发服务器
 
 开发阶段的热更新
 
@@ -422,4 +422,18 @@ const serve = () => {
     }
   })
 }
+```
+
+###### 监听文件变化
+
+实现的原理是监听文件变化，然后自动执行打包任务，然后`browser-sync`会监听`dist`文件夹，实现热更新
+
+```js
+  // 监听什么文件就执行什么任务
+  watch('src/assets/styles/*.scss', style)
+  watch('src/assets/scripts/*.js', script)
+  watch('src/*.html', page)
+  watch('src/assets/images/**', image)
+  watch('src/assets/fonts/**', font)
+  watch('public/**', extra)
 ```
