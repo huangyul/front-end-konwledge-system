@@ -449,3 +449,21 @@ const serve = () => {
   watch(['src/assets/images/**', 'src/assets/fonts/**', 'public/**'], browser.reload)
 
 ```
+
+#### useref
+
+将html的静态资源修改并打包成新的文件
+
+```pnpm add useref -D```
+
+```js
+const useref1 = () => {
+  return src('dist/*.html', { base: "dist" })
+    .pipe(useref({ searchPath: ['dist', '.'] }))
+    // 压缩html js css，注意，当前读取流有三种文件
+    .pipe(gIf(/\.js$/, uglify()))
+    .pipe(gIf(/\.css$/, cssmin()))
+    .pipe(gIf(/\.html$/, htmlmin({ collapseWhitespace: true, minifyCSS: true, minifyJS: true })))
+    .pipe(dest('prod')) // 这里因为读写流都在一起，可能会造成边写边读，所以使用另外一个文件
+}
+```
