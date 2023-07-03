@@ -399,3 +399,27 @@ const clean = () => {
 
 const build = series(clean, paraller())  // 先执行clean，再执行重新打包的任务
 ```
+###### 开发服务器
+
+开发阶段的热更新
+
+`browser-sync`
+
+```js
+
+const browser = require('browser-sync')()
+const serve = () => {
+  browser.init({
+    notify: false, // 连接提示
+    port: 3000, // 启动端口
+    open: true, // 自动启动浏览器
+    files: "dist/**", // 监听文件改变自动更新
+    server: {
+      baseDir: "dist",
+      routes: { // 自定路由，比baseDir优先级高
+        "/node_modules": "node_modules"
+      }
+    }
+  })
+}
+```
