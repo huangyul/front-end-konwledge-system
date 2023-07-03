@@ -437,3 +437,15 @@ const serve = () => {
   watch('src/assets/fonts/**', font)
   watch('public/**', extra)
 ```
+
+##### 构建优化
+
+###### 在开发阶段可以不打包字体，图片等文件，提高构建速度
+
+```js
+  // watch('src/assets/images/**', image)
+  // watch('src/assets/fonts/**', font)
+  // watch('public/**', extra)
+  watch(['src/assets/images/**', 'src/assets/fonts/**', 'public/**'], browser.reload)
+
+```
