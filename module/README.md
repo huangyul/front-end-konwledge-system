@@ -33,3 +33,10 @@
 ### polyfill
 
 可以通过引用一个js文件解决esm在低版本浏览器不兼容的问题```browser-es-module-loader```
+
+### commonjs与ESM
+
+1. esm中可以导入comminjs
+2. commonjs不可以导入esm
+3. commonjs导出的是一个默认对象
+4. import不是解构对象导出
