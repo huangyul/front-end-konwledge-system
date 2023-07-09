@@ -7,7 +7,7 @@
 
 ## ES module
 
-### 基本特点
+### 导出基本特点
 
 - 自动采用严格模式
 - 每个`esm`都是独立的模块，里面的变量属性都是私有的
@@ -19,3 +19,9 @@
 1. `export { name }` 这种是固定写法，而不是导出一个对象字面量
 2. esm导出的是变量的引用，而commonjs是变量的复制
 3. esm导出的变量是只读的，不可重写变量的值
+
+### 导入基本特点
+
+1. `form`后面的路径要完整
+2. 需要异步导入时，使用`import('./xxx.js')`，返回的是promise
+3. 当一个文件既导出具名变量，又导出默认变量，可以这样导入`import title, {name, age} from "./xxx.js"`或`import {name, age, default as title} from "./xxx.js"`
