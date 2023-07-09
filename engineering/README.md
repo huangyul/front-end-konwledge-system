@@ -467,3 +467,14 @@ const useref1 = () => {
     .pipe(dest('prod')) // 这里因为读写流都在一起，可能会造成边写边读，所以使用另外一个文件
 }
 ```
+
+## 封装自动化工作流
+
+具体操作就是发布到npm上，使用时就下载下来
+
+### 新建项目
+
+1. 在git上新建一个项目，用来保存gulpfile的相关操作
+2. 将原来gulpfile的代码转移到新项目的lib/index.js内
+3. 将原来gulpfile的开发依赖转移到新项目的package.json的依赖中
+4. 开发阶段在新项目中使用`yarn link`创建软连接，在原来的项目中可通过`yarn link name`去连接到新项目
