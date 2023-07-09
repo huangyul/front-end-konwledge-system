@@ -3,3 +3,13 @@
 ## 发展历史
 
 一开始`node`首先提出了`commonjs`，是使用同步的方式，所以不适合浏览器，浏览器就提出了`AMD`（代表着`requirejs`）,后面又出了`CMD（sea.js）`，使用`commonjs`的方式实现`requirejs`，现代基本采用`ES modules`
+
+
+## ES module
+
+### 基本特点
+
+- 自动采用严格模式
+- 每个`esm`都是独立的模块，里面的变量属性都是私有的
+- `esm`通过`cros`请求`js文件`，所以可能会有跨域的问题
+- `esm`的`script`标签会延迟执行，相等于`defer` 
