@@ -25,3 +25,11 @@
 1. `form`后面的路径要完整
 2. 需要异步导入时，使用`import('./xxx.js')`，返回的是promise
 3. 当一个文件既导出具名变量，又导出默认变量，可以这样导入`import title, {name, age} from "./xxx.js"`或`import {name, age, default as title} from "./xxx.js"`
+
+### 直接导出导入的值
+
+```export {name, age} from './sss.js'```
+
+### polyfill
+
+可以通过引用一个js文件解决esm在低版本浏览器不兼容的问题```browser-es-module-loader```
