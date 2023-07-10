@@ -47,3 +47,28 @@
 
 安装webpack `yarn add webpack webpack-cli -D`
 执行webpack `yarn webpack`
+
+## 配置文件
+
+在根目录下新建`webpack.config.js`
+
+以下是简单的配置，指定了入口文件和输出文件
+
+```js
+// webpack.config.js
+const path = require('path')
+
+module.exports = {
+  // 指定入口文件
+  entry: "./src/index.js",
+  // 指定模式
+  mode: "development", // production none
+  // 指定输出目录
+  output: {
+    path: path.resolve(__dirname, 'dist2'),
+    filename: 'bundler.js'
+  }
+}
+
+
+```
