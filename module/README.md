@@ -40,3 +40,10 @@
 2. commonjs不可以导入esm
 3. commonjs导出的是一个默认对象
 4. import不是解构对象导出
+
+# Webpack
+
+## 使用
+
+安装webpack `yarn add webpack webpack-cli -D`
+执行webpack `yarn webpack`
