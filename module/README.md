@@ -69,6 +69,32 @@ module.exports = {
     filename: 'bundler.js'
   }
 }
+```
 
+## 资源加载
 
+`webpack`默认只能加载`javascript`资源文件，所以其他的资源文件需要使用相应的`loader`实现
+
+### css
+
+要处理`css`文件，需要安装两个`loader`
+
+- `css-loader`：将`css`文件转为返回字符串的一个`js`函数
+- `style-loader`：将`css-loader`返回的函数新建一个`style`标签插入`document`中
+
+```js
+// index.js
+import "./main.css"
+
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
+}
 ```
