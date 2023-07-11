@@ -157,3 +157,20 @@ module.exports = source => {
   return `export default ${JSON.stringify(source)}`
 }
 ```
+
+## 插件
+
+增强自动化的能力
+
+### 自动删除dist目录
+
+clean-webpack-plugin
+
+```js
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
+plugins: [
+  new CleanWebpackPlugin()
+]
+```
+
