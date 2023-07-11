@@ -181,3 +181,11 @@ plugins: [
 html-webpack-plugin
 
 copy-webpack-plugin 复制目录
+
+### 开发一个webpack插件
+
+使用钩子机制
+
+```js
+
+```
