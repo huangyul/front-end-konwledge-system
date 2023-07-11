@@ -112,3 +112,35 @@ module.exports = {
   }
 }
 ```
+
+### 处理js
+
+使用babel-loader
+
+```js
+{
+  test: /.js$/,
+  use: {
+    loader: 'babel-loader',
+    options: {
+      presets: ['@babel/preset-env']
+    }
+  }
+}
+```
+
+### 加载html中的资源
+
+使用html-loader
+
+```js
+{
+  test: /.html$/,
+  usr: {
+    loader: 'html-loader',
+    options: {
+      attrs: ['img:src', 'a:href']
+    }
+  }
+}
+```
