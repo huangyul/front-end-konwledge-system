@@ -174,3 +174,10 @@ plugins: [
 ]
 ```
 
+### 自动生成模板文件
+
+这样文件路径的引用可以根据生成的js文件生成
+
+html-webpack-plugin
+
+copy-webpack-plugin 复制目录
