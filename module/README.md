@@ -98,3 +98,17 @@ module.exports = {
   }
 }
 ```
+
+### 文件资源
+
+要处理文件资源，需要使用`file-loader`，该加载器会将匹配到的文件进行打包，还可配合`url-loader`使用，可以将文件转为base64，从而减少请求的次数，但是相应的也会增加打包后文件的体积
+
+```js
+{
+  test: /.png$/,
+  use: {
+    loader: 'url-loader',
+    limit: 10 * 1024 // 超过10k就使用file-loader
+  }
+}
+```
