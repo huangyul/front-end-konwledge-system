@@ -144,3 +144,16 @@ module.exports = {
   }
 }
 ```
+
+## 开发loader
+
+loader的工作原理很像管道传输，最后loader一定要返回js语句
+
+现在实现一个markdown的loader
+
+```js
+// markdown-loader
+module.exports = source => {
+  return `export default ${JSON.stringify(source)}`
+}
+```
