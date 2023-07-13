@@ -205,3 +205,19 @@ Rollup更加小巧，专门用来打包ESM
 安装`yarn rollup -D`
 
 使用`yarn rollop ./src/index.js --format iife --file dist/index.js`
+
+## 配置文件
+
+```js
+// rollup.config.js
+module.exports = {
+  input: 'src/index.js',
+  output: {
+    file: 'dist/bundle.js',
+    format: 'iife'
+  }
+}
+```
+
+使用要指定配置文件
+`yarn rollup --config rollup.config.js`
