@@ -221,3 +221,15 @@ module.exports = {
 
 使用要指定配置文件
 `yarn rollup --config rollup.config.js`
+
+## 使用插件
+
+`rollup-plugin-json`
+
+```js
+// rollup.config.js
+{
+  plugins: [json()]
+}
+
+```
