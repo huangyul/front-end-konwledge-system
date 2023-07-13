@@ -68,3 +68,28 @@ const a = 1 // eslint-disable-line
 
 
 ```
+
+## eslint与gulp
+
+在处理babel前执行eslint
+
+```js
+// gulpfile.js
+const { src, dest } = require('gulp')
+const babel = require('gulp-babel')
+const eslint = require('gulp-eslint')
+
+const script = () => {
+  return src('./src/index.js', { base: 'src' })
+    .pipe(eslint()) // 先进行eslint检验在使用babel
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(babel({ presets: ['@babel/preset-env'] }))
+    .pipe(dest('dist'))
+}
+
+module.exports = {
+  script
+}
+
+```
