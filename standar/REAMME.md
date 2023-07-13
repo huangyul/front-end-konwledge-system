@@ -57,3 +57,14 @@ module.exports = {
 }
 
 ```
+
+## 配置注释
+
+可以使用注释忽略eslint
+
+```js
+// 单行注释
+const a = 1 // eslint-disable-line
+
+
+```
