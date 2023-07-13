@@ -199,3 +199,9 @@ copy-webpack-plugin 复制目录
 # Rollup
 
 Rollup更加小巧，专门用来打包ESM
+
+## 快速上手
+
+安装`yarn rollup -D`
+
+使用`yarn rollop ./src/index.js --format iife --file dist/index.js`
