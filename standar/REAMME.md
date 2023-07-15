@@ -138,3 +138,6 @@ module.exports = {
 
 执行
 `yarn prettier . --write`
+
+
+## git hooks
