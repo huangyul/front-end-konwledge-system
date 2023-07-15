@@ -93,3 +93,19 @@ module.exports = {
 }
 
 ```
+
+## eslint与webpack
+
+使用loader
+
+`eslint-lader`
+
+```js
+rules: [
+  {
+    test: /\.js$/,
+    use: 'eslint-loader'
+  }
+]
+```
+
