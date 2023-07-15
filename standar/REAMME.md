@@ -141,3 +141,6 @@ module.exports = {
 
 
 ## git hooks
+
+使用`husky`实现git hooks
+
