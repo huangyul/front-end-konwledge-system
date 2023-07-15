@@ -131,3 +131,10 @@ module.exports = {
   ]
 }
 ```
+
+## Prettier
+
+`yarn add prettier -D`
+
+执行
+`yarn prettier . --write`
