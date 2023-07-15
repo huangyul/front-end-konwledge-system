@@ -109,3 +109,25 @@ rules: [
 ]
 ```
 
+## StyleLint
+
+- 专门用来规范化css文件的
+- 可以通过插件支持sass less
+- 支持gulp或者webpack集成
+
+安装 `yarn add stylelint -D`
+
+安装集成插件
+`yarn add stylelint-config-standard stylelint-config-sass-guidelines -D`
+
+新建stylelint配置文件
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines"
+  ]
+}
+```
