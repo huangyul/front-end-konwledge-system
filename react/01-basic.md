@@ -126,3 +126,21 @@ function Foo() {
   }, [count])
 } 
 ```
+
+### useMemo
+
+类似于计算属性，computed
+
+```jsx
+function Foo() {
+  const [count, setCount] = useState(0)
+  const sum = useMemo(() => {
+    return count+1
+  }, [count])
+  return (
+    <div>
+      <button onClick={() => setCount(count+1)}></button>
+    </div>
+  )
+}
+```
