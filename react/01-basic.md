@@ -34,3 +34,31 @@ function Add() {
 }
 
 ```
+
+### useReducer
+
+另外一种保存状态的钩子函数
+
+用法：
+- 先定义好`reducer`函数
+
+```jsx
+function Foo() {
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'increment':
+        return state + 1
+      default:
+        return state
+    }
+  }
+
+  const [count, dispatch] = useReducer(reducer, 0)
+
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: 'increment' })}>increment</button>
+    </div>
+  )
+}
+```
