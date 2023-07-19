@@ -32,3 +32,9 @@
 ```
 
 **与编辑器集成**
+
+### lint-staged和husky
+
+`npx mrm@2 lint-staged`
+
+husky: 可以使用一些git钩子
