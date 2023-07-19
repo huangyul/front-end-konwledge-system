@@ -100,3 +100,29 @@ function Child() {
   )
 }
 ```
+
+### useEffect
+
+用于监听生命周期
+
+有三种形式：
+1. useEffect(() => {}): 在组件挂载和和更新都会执行
+2. useEffect(() => {}, []): 在组件挂载会执行
+3. useEffect(() => () => {}): 在组件销毁会执行
+
+```jsx
+
+function Foo() {
+  const [count, setCount] = setState(0)
+
+  // 第二参数如果传了，等于在这个值更新才会执行，类似vue的watch
+  useEffect(() => {
+    // do something
+    document.title = count
+    return () => {
+      // 组件销毁时 dosomething
+      document.title = 'react'
+    }
+  }, [count])
+} 
+```
