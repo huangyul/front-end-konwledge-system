@@ -62,3 +62,41 @@ function Foo() {
   )
 }
 ```
+
+### useContext
+
+用于简化createContext的使用
+
+```jsx
+const themeContext = createContext()
+
+function Parent() {
+  return (
+    <div>
+       {/* 传递给子组件的数据 */}
+      <themeContext.Provider value={10}>
+        <Child></Child>
+      </themeContext.Provider>
+    </div>
+  )
+}
+
+function Child() {
+  // 原本的用法
+  // return (
+  //   <div>
+  //     <themeContext.Consumer>
+  //       {
+  //         value => <div>{value}</div>
+  //       }
+  //     </themeContext.Consumer>
+  //   </div>
+  // )
+
+  // 使用useContext
+  const value = useContext(themeContext)
+  return (
+    <div>{value}</div>
+  )
+}
+```
