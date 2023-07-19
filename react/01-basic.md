@@ -144,3 +144,15 @@ function Foo() {
   )
 }
 ```
+
+### memo
+
+性能优化，如果组件中的数据没有发生变化，就阻止组件更新
+
+```jsx
+function Foo() {
+  return <div>Foo</div>
+}
+
+export default memo(Foo)
+```
