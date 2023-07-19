@@ -156,3 +156,32 @@ function Foo() {
 
 export default memo(Foo)
 ```
+
+### useCallback
+
+性能优化，缓存函数，使得组件重新渲染时得到相同的函数实例
+
+```jsx
+function Foo() {
+  const [count, setCount] = useState(0)
+  // 通过useCallback包裹的函数在重新渲染时会得到相同的函数实例，这样将该函数传递给子组件的时候等于传了相同的函数，配合memo就不会让子组件更新
+  const resetCount = useCallback(() => {
+    setCount(0)
+  }, [setCount])
+
+  return (
+    <div>
+      <p>{count}</p>
+      <Bar setCount={setCount}></Bar>
+    </div>
+  )
+}
+
+function Bar(props) {
+  return (
+    <button onClick={props.resetCount}></button>
+  )
+}
+
+export default memo(Bar)
+```
