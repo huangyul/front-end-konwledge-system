@@ -260,3 +260,37 @@ function App() {
   )
 }
 ```
+
+例子二：
+
+封装了input的value和onchang事件，达到复用的效果
+
+```jsx
+function useUpdateInput(initialVal) {
+  const [value, setValue] = useState(initialVal)
+  const onChange = (e) => {
+    setValue(e.target.value)
+  }
+  return {
+    value,
+    onChange
+  }
+
+}
+
+function App() {
+  const username = useUpdateInput('')
+  const password = useUpdateInput('')
+  return (
+    <div>
+      <form>
+        <input type='text' name='username' {...username}></input>
+        <input type='password' name='password' {...password}></input>
+        <button type='button' onClick={() => {
+          console.log(username.value, password.value)
+        }}>submit</button>
+      </form>
+    </div>
+  )
+}
+```
