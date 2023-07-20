@@ -231,3 +231,32 @@ function App() {
   )
 }
 ```
+
+### 自定义hook
+
+- 标准的封装和共享逻辑的方法
+- 使用`use`开头
+
+```jsx
+function useGetData() {
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:3000').then(res => setData(res.data))
+  })
+
+  return [
+    data, setData
+  ]
+}
+
+function App() {
+  const [data] = useGetData()
+  return (
+    <div>
+      <p>{data.name}</p>
+      <p>{data.desc}</p>
+    </div>
+  )
+}
+```
