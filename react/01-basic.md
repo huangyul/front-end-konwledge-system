@@ -200,3 +200,34 @@ function Foo() {
   )
 }
 ```
+
+#### 保存数据
+
+当组件重新渲染，保存的数据仍然在的
+
+```jsx
+function App() {
+  const [count, setCount] = useState(0)
+  let timerId = useRef(null)
+
+  useEffect(() => {
+    timerId.current = setInterval(() => {
+      setCount((prevCount) => prevCount + 1) // 使用 prevCount 来避免覆盖外部的 count
+    }, 1000)
+    return () => {
+      clearInterval(timerId.current) // 组件卸载时清除计时器
+    }
+  }, [])
+
+  const stopCount = () => {
+    clearInterval(timerId.current)
+  }
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={stopCount}>stop</button>
+    </div>
+  )
+}
+```
