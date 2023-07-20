@@ -185,3 +185,18 @@ function Bar(props) {
 
 export default memo(Bar)
 ```
+
+### useRef 
+
+获取dom元素对象
+
+```jsx
+
+function Foo() {
+  const box = useRef()
+
+  return (
+    <div ref={box}></div>
+  )
+}
+```
